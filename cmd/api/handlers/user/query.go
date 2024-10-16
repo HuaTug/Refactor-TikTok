@@ -9,7 +9,7 @@ import (
 	"github.com/cloudwego/hertz/pkg/app"
 )
 
-func QueryUserInfo(ctx context.Context, c *app.RequestContext) {
+func QueryUser(ctx context.Context, c *app.RequestContext) {
 	var query QueryParam
 	if err := c.Bind(&query); err != nil {
 		SendResponse(c, errno.ConvertErr(err), nil)

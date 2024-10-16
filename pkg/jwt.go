@@ -1,13 +1,14 @@
-package config
+package pkg
 
 import (
 	"context"
 	"encoding/json"
-	"errors"
+	"fmt"
 	"time"
 
 	"HuaTug.com/cmd/api/rpc"
 	"HuaTug.com/kitex_gen/users"
+	"HuaTug.com/pkg/errno"
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/common/hlog"
 	"github.com/hertz-contrib/jwt"
@@ -18,11 +19,15 @@ var (
 	RefreshTokenJwtMiddleware *jwt.HertzJWTMiddleware
 
 	AccessTokenExpireTime  = time.Hour * 24
-	RefreshTokenExpireTime = time.Hour * 24 * 30
+	RefreshTokenExpireTime = time.Hour * 72
 
-	AccessTokenIdentityKey  = "user_id"
-	RefreshTokenIdentityKey = "user_id"
+	AccessTokenIdentityKey  = "access_token_field"
+	RefreshTokenIdentityKey = "refresh_token_field"
 )
+
+type PayloadIdentityData struct {
+	Uid string
+}
 
 type LoginParam struct {
 	UserName string `form:"user_name" json:"username"`
@@ -33,40 +38,35 @@ func AccessTokenJwtInit() {
 	var err error
 	AccessTokenJwtMiddleware, err = jwt.New(&jwt.HertzJWTMiddleware{
 		Key:                         []byte("access_token_key_123456"),
-		TokenLookup:                 "query:token,form:token",
+		TokenLookup:                 "query:token,header:Access-Token,form:token",
 		Timeout:                     AccessTokenExpireTime,
 		IdentityKey:                 AccessTokenIdentityKey,
 		WithoutDefaultTokenHeadName: true,
 
 		Authenticator: func(ctx context.Context, c *app.RequestContext) (interface{}, error) {
 			var loginRequest LoginParam
-			if err := c.Bind(&loginRequest); err != nil {
+			if err := c.BindAndValidate(&loginRequest); err != nil {
 				return nil, err
 			}
-			resp, err := rpc.LoginUser(ctx, &users.LoginUserResquest{
+			user, err := rpc.LoginUser(context.Background(), &users.LoginUserResquest{
 				UserName: loginRequest.UserName,
 				Password: loginRequest.PassWord,
 			})
 			if err != nil {
-				//c.JSON(http.StatusBadRequest, "登录失败")
-				hlog.Info(err)
 				return nil, err
 			}
-			hlog.Info(resp.User.UserName)
-			hlog.Info(resp.User.UserId)
-			c.Set("user_id", resp.User.UserId)
-			//生成refresh_token , 并且设置键值对映射
-			/* 			_, refretoken, _ := utils2.GenerateToken(users.UserID, users.UserName)
-			   			c.Set("refresh", refretoken) */
-			return resp.User.UserId, nil
-			//return nil, nil
+			if user == nil {
+				return nil, errno.UserNotExistErr
+			}
+			c.Set("user_id", user.User.UserId)
+			return user.User.UserId, nil
 		},
 
 		// data为Authenticator返回的interface{}
 		PayloadFunc: func(data interface{}) jwt.MapClaims {
 			if v, ok := data.(int64); ok {
 				return jwt.MapClaims{
-					AccessTokenIdentityKey: v,
+					AccessTokenJwtMiddleware.IdentityKey: v,
 				}
 			}
 			return jwt.MapClaims{}
@@ -78,8 +78,7 @@ func AccessTokenJwtInit() {
 		},
 
 		HTTPStatusMessageFunc: func(e error, ctx context.Context, c *app.RequestContext) string {
-			hlog.CtxErrorf(ctx, "jwt biz err = %+v", e.Error())
-			return e.Error()
+			return "Success"
 		},
 	})
 
@@ -90,8 +89,9 @@ func AccessTokenJwtInit() {
 }
 
 func GenerateAccessToken(ctx context.Context, c *app.RequestContext) {
-	v, _ := c.Get(RefreshTokenIdentityKey)
-	tokenString, _, _ := AccessTokenJwtMiddleware.TokenGenerator(v)
+	v, _ := c.Get(AccessTokenJwtMiddleware.IdentityKey)
+	data := v
+	tokenString, _, _ := AccessTokenJwtMiddleware.TokenGenerator(data)
 	c.Header("New-Access-Token", tokenString)
 }
 
@@ -120,6 +120,7 @@ func IsAccessTokenAvailable(ctx context.Context, c *app.RequestContext) bool {
 	}
 	c.Set("JWT_PAYLOAD", claims)
 	identity := AccessTokenJwtMiddleware.IdentityHandler(ctx, c)
+	hlog.Info(identity)
 	if identity != nil {
 		c.Set(AccessTokenJwtMiddleware.IdentityKey, identity)
 	}
@@ -133,17 +134,17 @@ func IsAccessTokenAvailable(ctx context.Context, c *app.RequestContext) bool {
 func ExtractUserIdWhenAuthorized(ctx context.Context, c *app.RequestContext) (interface{}, error) {
 	data, exist := c.Get(AccessTokenJwtMiddleware.IdentityKey)
 	if !exist {
-		return nil, errors.New("Service Error")
+		return nil, errno.UserNotExistErr
 	}
 	return data, nil
 }
 
-func CovertJWTPayloadToString(ctx context.Context, c *app.RequestContext) (string, error) {
+func ConvertJWTPayloadToString(ctx context.Context, c *app.RequestContext) (interface{}, error) {
 	data, err := ExtractUserIdWhenAuthorized(ctx, c)
 	if err != nil {
-		return ``, err
+		return -1, err
 	}
-	return data.(map[string]interface{})["Uid"].(string), nil
+	return data, nil
 }
 
 func RefreshTokenJwtInit() {
@@ -159,24 +160,20 @@ func RefreshTokenJwtInit() {
 		Authenticator: func(ctx context.Context, c *app.RequestContext) (interface{}, error) {
 			uid, exist := c.Get("user_id")
 			if !exist {
-				return nil, errors.New("Auth Fail!")
+				return nil, errno.UserNotExistErr
 			}
-			if v, ok := uid.(int64); !ok {
-				return nil, errors.New("Fail to convert")
-			} else {
-				return v, nil
-			}
+			return PayloadIdentityData{Uid: fmt.Sprint(uid)}, nil
 		},
 
-		/* 		IdentityHandler: func(ctx context.Context, c *app.RequestContext) interface{} {
+		IdentityHandler: func(ctx context.Context, c *app.RequestContext) interface{} {
 			claims := jwt.ExtractClaims(ctx, c)
 			return &PayloadIdentityData{
 				Uid: claims[RefreshTokenJwtMiddleware.IdentityKey].(string),
 			}
-		}, */
+		},
 
 		PayloadFunc: func(data interface{}) jwt.MapClaims {
-			if v, ok := data.(int64); ok {
+			if v, ok := data.(PayloadIdentityData); ok {
 				return jwt.MapClaims{
 					RefreshTokenJwtMiddleware.IdentityKey: v,
 				}
@@ -188,10 +185,10 @@ func RefreshTokenJwtInit() {
 			c.Set("Refresh-Token", message)
 		},
 
-		/* 		Authorizator: func(data interface{}, ctx context.Context, c *app.RequestContext) bool {
+		Authorizator: func(data interface{}, ctx context.Context, c *app.RequestContext) bool {
 			c.Set("user_id", data.(*PayloadIdentityData).Uid)
 			return true
-		}, */
+		},
 	})
 	if err != nil {
 		panic(err)
@@ -233,8 +230,11 @@ func IsRefreshTokenAvailable(ctx context.Context, c *app.RequestContext) bool {
 	return true
 }
 
-func GenerateRefreshToken(ctx context.Context, c *app.RequestContext) {
-	v, _ := c.Get(AccessTokenIdentityKey)
-	tokenString, _, _ := AccessTokenJwtMiddleware.TokenGenerator(v)
-	c.Header("New-Refresh-Token", tokenString)
-}
+// func GenerateRefreshToken(ctx context.Context, c *app.RequestContext) {
+// 	v, _ := c.Get(RefreshTokenJwtMiddleware.IdentityKey)
+// 	data := PayloadIdentityData{
+// 		Uid: v.(*PayloadIdentityData).Uid,
+// 	}
+// 	tokenString, _, _ := AccessTokenJwtMiddleware.TokenGenerator(data)
+// 	c.Header("New-Refresh-Token", tokenString)
+// }

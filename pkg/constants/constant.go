@@ -34,3 +34,5 @@ var (
 	MySQLDefaultDSN = "root:root@tcp(localhost:3306)/note?charset=utf8&parseTime=True&loc=Local"
 	EtcdAddress     = "localhost:2379"
 )
+
+const DataFormate = "2006-01-02"

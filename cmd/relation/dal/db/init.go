@@ -1,6 +1,8 @@
 package db
 
 import (
+	"HuaTug.com/pkg/utils"
+	"github.com/cloudwego/hertz/pkg/common/hlog"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -10,8 +12,9 @@ var DB *gorm.DB
 // Init init DB
 func Init() {
 	var err error
-	//dsn := utils.GetMysqlDsn()
-	dsn := "root:root@tcp(localhost:3306)/Hertz?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := utils.GetMysqlDsn()
+	hlog.Info(dsn)
+	//dsn := "root:root@tcp(localhost:3306)/Hertz?charset=utf8mb4&parseTime=True&loc=Local"
 	DB, err = gorm.Open(mysql.Open(dsn),
 		&gorm.Config{
 			PrepareStmt:            true,

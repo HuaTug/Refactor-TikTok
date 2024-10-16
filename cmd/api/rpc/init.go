@@ -1,11 +1,8 @@
 package rpc
 
-
-func InitRPC(){
-	initUserRpc()
-	initVideoRpc()
-	initUploadrpc()
-	initCommentRpc()
-	initFavoriteRpc()
-	initRealtionRpc()
+func InitRPC() {
+	InitUserRpc()
+	InitInteractionRpc()
+	InitVideoRpc()
+	InitRealtionRpc()
 }

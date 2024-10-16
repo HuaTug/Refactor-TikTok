@@ -1,6 +1,6 @@
 module HuaTug.com
 
-go 1.22.1
+go 1.22
 
 replace github.com/apache/thrift => github.com/apache/thrift v0.13.0
 
@@ -10,6 +10,7 @@ require (
 	github.com/cloudwego/hertz v0.8.1
 	github.com/cloudwego/kitex v0.9.1
 	github.com/cloudwego/kitex-examples/bizdemo/easy_note v0.0.0-20240322131151-e2c2aadc3315
+	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/go-redsync/redsync/v4 v4.13.0
 	github.com/gomodule/redigo v1.8.9
@@ -18,9 +19,11 @@ require (
 	github.com/minio/minio-go/v7 v7.0.70
 	github.com/olivere/elastic/v7 v7.0.32
 	github.com/opentracing/opentracing-go v1.2.0
+	github.com/pkg/errors v0.9.1
 	github.com/shirou/gopsutil v3.21.11+incompatible
 	github.com/sirupsen/logrus v1.9.2
 	github.com/spf13/viper v1.18.2
+	github.com/u2takey/ffmpeg-go v0.5.0
 	github.com/u2takey/go-utils v0.3.1
 	github.com/uber/jaeger-client-go v2.30.0+incompatible
 	golang.org/x/crypto v0.21.0
@@ -30,6 +33,7 @@ require (
 
 require (
 	github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d // indirect
+	github.com/aws/aws-sdk-go v1.43.21 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bytedance/go-tagexpr/v2 v2.9.2 // indirect
 	github.com/bytedance/gopkg v0.0.0-20230728082804-614d0af6619b // indirect
@@ -70,6 +74,7 @@ require (
 	github.com/jhump/protoreflect v1.8.2 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
+	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.17.6 // indirect
@@ -86,7 +91,6 @@ require (
 	github.com/nyaruka/phonenumbers v1.0.55 // indirect
 	github.com/oleiade/lane v1.0.1 // indirect
 	github.com/pelletier/go-toml/v2 v2.1.0 // indirect
-	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/prometheus/client_golang v1.14.0 // indirect
 	github.com/prometheus/client_model v0.4.0 // indirect

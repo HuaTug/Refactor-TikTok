@@ -21,11 +21,27 @@ import (
 )
 
 const (
-	SuccessCode                = 10000
-	ServiceErrCode             = 10001
-	ParamErrCode               = 10002
+	SuccessCode    = 10000
+	ServiceErrCode = 10001
+	ParamErrCode   = 10002
+
 	UserAlreadyExistErrCode    = 10003
 	AuthorizationFailedErrCode = 10004
+	UserNotExistErrCode        = 10005
+
+	MysqlErrCode         = 10006
+	RedisErrCode         = 10007
+	ElasticSearchErrCode = 10008
+	OssErrCode           = 10009
+	RabbitMQErrCode      = 10010
+
+	RpcErrCode   = 10011
+	RequestError = 10012
+
+	TokenInvailedErrCode   = 10013
+	TokenExpireTimeErrCode = 10014
+
+	DataProcessFailed = 10015
 )
 
 type ErrNo struct {
@@ -52,6 +68,21 @@ var (
 	ParamErr               = NewErrNo(ParamErrCode, "Wrong Parameter has been given")
 	UserAlreadyExistErr    = NewErrNo(UserAlreadyExistErrCode, "User already exists")
 	AuthorizationFailedErr = NewErrNo(AuthorizationFailedErrCode, "Authorization failed")
+	UserNotExistErr        = NewErrNo(UserNotExistErrCode, "User not exisis")
+
+	MysqlErr         = NewErrNo(MysqlErrCode, "Mysql connection failed")
+	RedisErr         = NewErrNo(RedisErrCode, "Redis connection failed")
+	ElasticSearchErr = NewErrNo(ElasticSearchErrCode, "ElasticSearch startup failed")
+	OssErr           = NewErrNo(OssErrCode, "Oss startup failed")
+	RabbitMQErr      = NewErrNo(RabbitMQErrCode, "RabbitMQ connnection failed")
+
+	RpcErr     = NewErrNo(RpcErrCode, "Rpc startup failed")
+	RequestErr = NewErrNo(RequestError, "Request failed")
+
+	TokenInvailedErr   = NewErrNo(TokenInvailedErrCode, "Token is invailed")
+	TokenExpireTimeErr = NewErrNo(TokenExpireTimeErrCode, "Token is expired")
+
+	DataProcessErr = NewErrNo(DataProcessFailed, "DataProcess failed")
 )
 
 // ConvertErr convert error to Errno

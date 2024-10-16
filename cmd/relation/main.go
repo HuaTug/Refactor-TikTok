@@ -3,8 +3,10 @@ package main
 import (
 	"net"
 
-	"HuaTug.com/config/cache"
 	"HuaTug.com/cmd/relation/dal"
+	"HuaTug.com/cmd/relation/infras"
+	"HuaTug.com/config"
+	"HuaTug.com/config/cache"
 	relation "HuaTug.com/kitex_gen/relations/followservice"
 	"HuaTug.com/pkg/bound"
 	"HuaTug.com/pkg/constants"
@@ -18,10 +20,12 @@ import (
 
 func Init() {
 	//tracer2.InitJaeger(constants.UserServiceName)
+	infras.Init()
 	dal.Init()
 }
 
 func main() {
+	config.Init()
 	//r, err := etcd.NewEtcdRegistry([]string{config.ConfigInfo.Etcd.Addr})
 	r, err := etcd.NewEtcdRegistry([]string{"localhost:2379"})
 	if err != nil {
@@ -31,7 +35,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	addr, err := net.ResolveTCPAddr("tcp", ip+":8894")
+	addr, err := net.ResolveTCPAddr("tcp", ip+":8892")
 	if err != nil {
 		panic(err)
 	}

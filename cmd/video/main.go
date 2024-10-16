@@ -2,14 +2,17 @@ package main
 
 import (
 	"net"
+	"time"
 
-	"HuaTug.com/config/cache"
 	video "HuaTug.com/kitex_gen/videos/videoservice"
 
+	"HuaTug.com/cmd/video/common"
 	"HuaTug.com/cmd/video/dal"
+	"HuaTug.com/cmd/video/dal/redis"
 	"HuaTug.com/pkg/bound"
 	"HuaTug.com/pkg/constants"
 	"HuaTug.com/pkg/middleware"
+	"HuaTug.com/pkg/oss"
 	"github.com/cloudwego/hertz/pkg/common/hlog"
 	"github.com/cloudwego/kitex/pkg/limit"
 	"github.com/cloudwego/kitex/pkg/rpcinfo"
@@ -20,9 +23,13 @@ import (
 func Init() {
 	//tracer2.InitJaeger(constants.UserServiceName)
 	dal.Init()
+	redis.Load()
+	oss.InitMinio()
+	common.NewVideoSync().Run()
 }
 
 func main() {
+	Init()
 	//r, err := etcd.NewEtcdRegistry([]string{config.ConfigInfo.Etcd.Addr})
 	r, err := etcd.NewEtcdRegistry([]string{"localhost:2379"})
 	if err != nil {
@@ -37,8 +44,6 @@ func main() {
 		panic(err)
 	}
 	//
-	Init()
-	cache.Init()
 
 	//当出现了UserServiceImpl报错时 说明当前该接口的方法没有被完全实现
 
@@ -53,6 +58,7 @@ func main() {
 		//server.WithSuite(trace.NewDefaultServerSuite()),                    // tracer
 		server.WithBoundHandler(bound.NewCpuLimitHandler()), // BoundHandler
 		server.WithRegistry(r),                              // registry
+		server.WithMaxConnIdleTime(30*time.Second),
 	)
 	err = svr.Run()
 	if err != nil {

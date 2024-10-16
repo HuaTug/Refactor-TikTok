@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"HuaTug.com/cmd/api/rpc"
+	"HuaTug.com/cmd/video/dal/redis"
 	jwt "HuaTug.com/pkg"
 	"HuaTug.com/pkg/errno"
 	"github.com/cloudwego/hertz/pkg/app"
@@ -16,6 +17,7 @@ import (
 
 func Init() {
 	rpc.InitRPC()
+	redis.Load()
 }
 
 func main() {
@@ -99,7 +101,7 @@ func main() {
 	   		c.String(consts.StatusOK, "no method")
 	   	}) */
 	register(r)
-	
+
 	r.Spin()
 
 }

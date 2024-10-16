@@ -47,3 +47,29 @@ type VideoSearchParam struct {
 	FromDate string `form:"from_date"`
 	ToDate   string `form:"to_date"`
 }
+
+type VideoPublishStartParam struct {
+	Title            string `form:"title"`
+	Description      string `form:"description"`
+	ChunkTotalNumber int64  `form:"chunk_total_number"`
+}
+
+type VideoPublishUploadingParam struct {
+	Uuid        string `form:"uuid"`
+	Data        byte   `form:"data"`
+	Is_M3U8     bool   `form:"is_m3u8"`
+	FileName    string `form:"filename"`
+	ChunkNumber int64  `form:"chunk_number"`
+}
+
+type VideoPublishCompleteParam struct {
+	Uuid string `form:"uuid"`
+}
+
+type VideoPublishCancleParam struct {
+	Uuid string `form:"uuid"`
+}
+
+type VideoDeleteParam struct {
+	VideoId int64 `form:"video_id"`
+}

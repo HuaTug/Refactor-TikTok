@@ -17,8 +17,11 @@ package main
 
 import (
 	"context"
+	"fmt"
 
+	"HuaTug.com/cmd/user/dal/db"
 	"HuaTug.com/cmd/user/service"
+	"HuaTug.com/kitex_gen/base"
 	"HuaTug.com/kitex_gen/users"
 	"github.com/cloudwego/hertz/pkg/common/hlog"
 	"github.com/cloudwego/hertz/pkg/protocol/consts"
@@ -39,7 +42,7 @@ func (s *UserServiceImpl) CreateUser(ctx context.Context, req *users.CreateUserR
 	err = service.NewCreateUserService(ctx).CreateUser(req)
 	if err != nil {
 		hlog.CtxErrorf(ctx, "service.CreateUser failed,original error:%v", errors.Cause(err))
-		hlog.CtxErrorf(ctx, "stack trace: \n%+v\n", err)  
+		hlog.CtxErrorf(ctx, "stack trace: \n%+v\n", err)
 		return resp, err
 	}
 
@@ -47,38 +50,48 @@ func (s *UserServiceImpl) CreateUser(ctx context.Context, req *users.CreateUserR
 }
 
 func (s *UserServiceImpl) UpdateUser(ctx context.Context, req *users.UpdateUserRequest) (resp *users.UpdateUserResponse, err error) {
+	var user *base.User
 	resp = new(users.UpdateUserResponse)
+	resp.Base = &base.Status{}
 	if err := service.NewUpdateUserService(ctx).UpdateUser(req); err != nil {
 		hlog.CtxErrorf(ctx, "service.UpdateUser failed,original error:%v", errors.Cause(err))
-		hlog.CtxErrorf(ctx, "stack trace: \n%+v\n", err)  
-		resp.Code = consts.StatusBadRequest
-		resp.Msg = "Fail To Update User"
+		hlog.CtxErrorf(ctx, "stack trace: \n%+v\n", err)
+		resp.Base.Code = consts.StatusBadRequest
+		resp.Base.Msg = "Fail To Update User"
+		resp.Data = nil
 		return resp, err
 	}
-	resp.Code = consts.StatusOK
-	resp.Msg = "Update User Success"
+	if user, err = db.GetUser(ctx, fmt.Sprint(req.UserId)); err != nil {
+		resp.Base.Code = consts.StatusBadRequest
+		resp.Base.Msg = "Get user info failed"
+	}
+
+	resp.Base.Code = consts.StatusOK
+	resp.Base.Msg = "Update User Success"
+	resp.Data = user
 	return resp, nil
 }
 
 func (s *UserServiceImpl) LoginUser(ctx context.Context, req *users.LoginUserResquest) (resp *users.LoginUserResponse, err error) {
 	resp = new(users.LoginUserResponse)
-	var user users.User
-	user, err = service.NewLoginUserService(ctx).LoginUsers(req)
-	if err != nil {
+	var user *base.User
+	var flag bool
+	user, err, flag = service.NewLoginUserService(ctx).LoginUser(req)
+	if err != nil || !flag {
 		hlog.CtxErrorf(ctx, "service.LoginUser failed,original error:%v", errors.Cause(err))
-		hlog.CtxErrorf(ctx, "stack trace: \n%+v\n", err)  
+		hlog.CtxErrorf(ctx, "stack trace: \n%+v\n", err)
 		return resp, err
 	}
-
-	resp.User = &user
+	resp.User = user
 	return resp, nil
 }
 
-func (s *UserServiceImpl) CheckUser(ctx context.Context, req *users.LoginUserResquest) (user users.User, err error) {
-	user, err = service.NewLoginUserService(ctx).LoginUsers(req)
-	if err != nil {
+func (s *UserServiceImpl) CheckUser(ctx context.Context, req *users.LoginUserResquest) (user *base.User, err error) {
+	var flag bool
+	user, err, flag = service.NewLoginUserService(ctx).LoginUser(req)
+	if err != nil || !flag {
 		hlog.CtxErrorf(ctx, "service.CheckUser failed,original error:%v", errors.Cause(err))
-		hlog.CtxErrorf(ctx, "stack trace: \n%+v\n", err)  
+		hlog.CtxErrorf(ctx, "stack trace: \n%+v\n", err)
 		return user, err
 	}
 	return user, nil
@@ -87,23 +100,28 @@ func (s *UserServiceImpl) CheckUser(ctx context.Context, req *users.LoginUserRes
 func (s *UserServiceImpl) QueryUser(ctx context.Context, req *users.QueryUserRequest) (resp *users.QueryUserResponse, err error) {
 	resp = new(users.QueryUserResponse)
 	resp.Users, resp.Totoal, err = service.NewQueryUserService(ctx).QueryUserInfo(req)
-	if err != nil {
+	if err != nil || resp.Totoal == 0 {
 		hlog.CtxErrorf(ctx, "service.QueryUser failed,original error:%v", errors.Cause(err))
-		hlog.CtxErrorf(ctx, "stack trace: \n%+v\n", err)  
+		hlog.CtxErrorf(ctx, "stack trace: \n%+v\n", err)
 		return resp, err
 	}
-	resp.Code = 200
-	resp.Msg = "Query Success"
+	for i := 0; i < int(resp.Totoal); i++ {
+		resp.Users[i].Password = "xxxxxx"
+	}
+	//ToDo 需要先对其进行初始化 分配指针内存
+	resp.Base = &base.Status{}
+	resp.Base.Code = 200
+	resp.Base.Msg = "Query Success"
 	return resp, nil
 }
 
 func (s *UserServiceImpl) GetUserInfo(ctx context.Context, req *users.GetUserInfoRequest) (resp *users.GetUserInfoResponse, err error) {
 	resp = new(users.GetUserInfoResponse)
-	var user *users.User
+	var user *base.User
 	hlog.Info(req.UserId)
 	if user, err = service.NewGetUserInfoService(ctx).GetUserInfo(req.UserId); err != nil {
 		hlog.CtxErrorf(ctx, "service.GetUserInfo failed,original error:%v", errors.Cause(err))
-		hlog.CtxErrorf(ctx, "stack trace: \n%+v\n", err)  
+		hlog.CtxErrorf(ctx, "stack trace: \n%+v\n", err)
 		return resp, err
 	}
 	resp.User = user
@@ -114,12 +132,13 @@ func (s *UserServiceImpl) DeleteUser(ctx context.Context, req *users.DeleteUserR
 	resp = new(users.DeleteUserResponse)
 	if err := service.NewDeleteUSerService(ctx).DeleteUser(req.UserId); err != nil {
 		hlog.CtxErrorf(ctx, "service.DeleteUser failed,original error:%v", errors.Cause(err))
-		hlog.CtxErrorf(ctx, "stack trace: \n%+v\n", err)  
-		resp.Msg = "Fail to Delete User!"
-		resp.Code = 500
+		hlog.CtxErrorf(ctx, "stack trace: \n%+v\n", err)
+		resp.Base.Msg = "Fail to Delete User!"
+		resp.Base.Code = 500
 		return resp, err
 	}
-	resp.Code = 200
-	resp.Msg = "Delete User Success!"
+	resp.Base=&base.Status{}
+	resp.Base.Code = 200
+	resp.Base.Msg = "Delete User Success!"
 	return resp, nil
 }

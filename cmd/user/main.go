@@ -25,6 +25,8 @@ import (
 	"HuaTug.com/pkg/bound"
 	"HuaTug.com/pkg/constants"
 	"HuaTug.com/pkg/middleware"
+	"HuaTug.com/pkg/oss"
+	"github.com/cloudwego/hertz/pkg/common/hlog"
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/cloudwego/kitex/pkg/limit"
 	"github.com/cloudwego/kitex/pkg/rpcinfo"
@@ -40,6 +42,10 @@ func Init() {
 
 func main() {
 	config.Init()
+	if err:=oss.InitMinio();err!=nil{
+		hlog.Info(err)
+		return
+	}
 	//r, err := etcd.NewEtcdRegistry([]string{config.ConfigInfo.Etcd.Addr})
 	r, err := etcd.NewEtcdRegistry([]string{"localhost:2379"})
 	if err != nil {

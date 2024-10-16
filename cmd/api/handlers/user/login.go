@@ -4,16 +4,15 @@ import (
 	"context"
 
 	"HuaTug.com/cmd/api/rpc"
-	jwt "HuaTug.com/pkg"
 	"HuaTug.com/kitex_gen/users"
+	jwt "HuaTug.com/pkg"
 	"HuaTug.com/pkg/errno"
 
 	"github.com/cloudwego/hertz/pkg/app"
-	"github.com/cloudwego/hertz/pkg/common/hlog"
 	"github.com/cloudwego/hertz/pkg/protocol/consts"
 )
 
-func Login(ctx context.Context, c *app.RequestContext) {
+func LoginUser(ctx context.Context, c *app.RequestContext) {
 	var loginVar LoginParam
 	var err error
 	if err := c.Bind(&loginVar); err != nil {
@@ -31,10 +30,9 @@ func Login(ctx context.Context, c *app.RequestContext) {
 		UserName: loginVar.UserName,
 		Password: loginVar.PassWord,
 	})
-	hlog.Info(resp.User.UserName)
-	if resp != nil {
-		resp.Code = consts.StatusOK
-		resp.Msg = "Login Success"
+	if resp.User != nil {
+		resp.Base.Code = consts.StatusOK
+		resp.Base.Msg = "Login Success"
 		resp.Token = AccessToken
 		resp.RefreshToken = RefreshToken
 	}

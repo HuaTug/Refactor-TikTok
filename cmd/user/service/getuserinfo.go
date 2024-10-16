@@ -2,10 +2,11 @@ package service
 
 import (
 	"context"
+	"fmt"
 
 	"HuaTug.com/cmd/user/dal/db"
 	"HuaTug.com/config/cache"
-	"HuaTug.com/kitex_gen/users"
+	"HuaTug.com/kitex_gen/base"
 	"github.com/cloudwego/hertz/pkg/common/hlog"
 	"github.com/pkg/errors"
 )
@@ -18,16 +19,17 @@ func NewGetUserInfoService(ctx context.Context) *GetUserInfoService {
 	return &GetUserInfoService{ctx: ctx}
 }
 
-func (v *GetUserInfoService) GetUserInfo(userId int64) (user *users.User, err error) {
+func (v *GetUserInfoService) GetUserInfo(userId int64) (user *base.User, err error) {
 	users, err := cache.CacheGetUser(userId)
 	if err != nil {
-		if user, err = db.GetUser(v.ctx, userId); err != nil {
+		if user, err = db.GetUser(v.ctx, fmt.Sprint(userId)); err != nil {
 			hlog.Info(err)
-			return user, errors.WithMessage(err,"dao.GetUserInfo failed")
+			return user, errors.WithMessage(err, "dao.GetUserInfo failed")
 		} else {
 			go cache.CacheSetUser(user)
-			return user,nil
+			return user, nil
 		}
 	}
+	fmt.Print(users)
 	return users, nil
 }

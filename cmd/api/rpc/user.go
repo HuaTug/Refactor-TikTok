@@ -2,68 +2,67 @@ package rpc
 
 import (
 	"context"
-	"errors"
 	"time"
 
 	"HuaTug.com/config"
+	"HuaTug.com/kitex_gen/base"
 	"HuaTug.com/kitex_gen/users"
 	"HuaTug.com/kitex_gen/users/userservice"
+	"github.com/cloudwego/hertz/pkg/common/hlog"
 	"github.com/cloudwego/kitex/client"
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/cloudwego/kitex/pkg/retry"
 	etcd "github.com/kitex-contrib/registry-etcd"
-	"github.com/sirupsen/logrus"
 )
 
-var userClient userservice.Client
+var UserClient userservice.Client
 
-func initUserRpc() {
+func InitUserRpc() {
 	config.Init()
 	//调用文件的位置则是main函数的起始位置
 	r, err := etcd.NewEtcdResolver([]string{config.ConfigInfo.Etcd.Addr})
 	if err != nil {
 		klog.Info(err)
 	}
-
 	c, err := userservice.NewClient(
 		"User",
 		/* 		client.WithMiddleware(middleware.CommonMiddleware),
 		   		client.WithInstanceMW(middleware.ClientMiddleware), */
 		client.WithMuxConnection(1),                       // mux
 		client.WithRPCTimeout(3*time.Second),              // rpc timeout
-		client.WithConnectTimeout(50*time.Millisecond),    // conn timeout
+		client.WithConnectTimeout(50*time.Second),         // conn timeout
 		client.WithFailureRetry(retry.NewFailurePolicy()), // retry
 		//client.WithSuite(trace.NewDefaultClientSuite()),   // tracer
 		client.WithResolver(r), // resolver
 	)
 	if err != nil {
-		logrus.Info(err)
+		hlog.Info(err)
 	}
-	userClient = c
+	UserClient = c
 }
 
 func CreateUser(ctx context.Context, req *users.CreateUserRequest) error {
-	resp, err := userClient.CreateUser(ctx, req)
+	resp, err := UserClient.CreateUser(ctx, req)
 	if err != nil {
 		return err
 	}
-	if resp.Code != 0 {
-		return errors.New("Fail to create User!")
+	if resp.Base.Code != 0 {
+		return err
 	}
 	return nil
 }
 
 func LoginUser(ctx context.Context, req *users.LoginUserResquest) (resp *users.LoginUserResponse, err error) {
-	resp, err = userClient.LoginUser(ctx, req)
+	resp, err = UserClient.LoginUser(ctx, req)
 	if err != nil {
-		return resp, errors.New("Fail to Login!")
+		return resp, err
 	}
 	return resp, nil
 }
 
-func CheckUser(ctx context.Context, req *users.LoginUserResquest) (users.User, error) {
-	var user users.User
-	resp, err := userClient.LoginUser(ctx, req)
+func CheckUser(ctx context.Context, req *users.LoginUserResquest) (base.User, error) {
+	var user base.User
+	resp, err := UserClient.LoginUser(ctx, req)
 	if err != nil {
 		return user, err
 	}
@@ -71,33 +70,34 @@ func CheckUser(ctx context.Context, req *users.LoginUserResquest) (users.User, e
 }
 
 func QueryUser(ctx context.Context, req *users.QueryUserRequest) (resp *users.QueryUserResponse, err error) {
-	resp, err = userClient.QueryUser(ctx, req)
+	resp, err = UserClient.QueryUser(ctx, req)
 	if err != nil {
-		return resp, errors.New("Fail to Query")
+		return resp, err
 	}
 	return resp, nil
 }
 
 func DeleteUser(ctx context.Context, req *users.DeleteUserRequest) (resp *users.DeleteUserResponse, err error) {
-	resp, err = userClient.DeleteUser(ctx, req)
+	resp, err = UserClient.DeleteUser(ctx, req)
 	if err != nil {
-		return resp, errors.New("Fail to Delete")
+		return resp, err
 	}
 	return resp, nil
 }
 
 func GetUserInfo(ctx context.Context, req *users.GetUserInfoRequest) (resp *users.GetUserInfoResponse, err error) {
-	resp, err = userClient.GetUserInfo(ctx, req)
+	resp = &users.GetUserInfoResponse{}
+	resp, err = UserClient.GetUserInfo(ctx, req)
 	if err != nil {
-		return resp, errors.New("Fail to GetInfo")
+		return resp, err
 	}
 	return resp, nil
 }
 
 func UpdateUser(ctx context.Context, req *users.UpdateUserRequest) (resp *users.UpdateUserResponse, err error) {
-	resp, err = userClient.UpdateUser(ctx, req)
+	resp, err = UserClient.UpdateUser(ctx, req)
 	if err != nil {
-		return resp, errors.New("Fail to Update")
+		return resp, err
 	}
 	return resp, nil
 }

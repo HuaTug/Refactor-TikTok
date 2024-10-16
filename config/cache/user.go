@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"HuaTug.com/kitex_gen/users"
+	"HuaTug.com/kitex_gen/base"
 	"github.com/sirupsen/logrus"
 )
 
@@ -26,7 +26,7 @@ func CacheGetIdAndName(u int64) string {
 	return v
 }
 
-func CacheSetUser(u *users.User) {
+func CacheSetUser(u *base.User) {
 	key := strconv.FormatInt(u.UserId, 10)
 	err := CacheSet("user:"+key, u)
 	if err != nil {
@@ -34,10 +34,10 @@ func CacheSetUser(u *users.User) {
 	}
 }
 
-func CacheGetUser(id int64) (*users.User, error) {
+func CacheGetUser(id int64) (*base.User, error) {
 	key := strconv.FormatInt(id, 10)
 	data, err := CacheGet("user:" + key)
-	users := &users.User{}
+	users := &base.User{}
 	if err != nil {
 		logrus.Info(err)
 		return users, err

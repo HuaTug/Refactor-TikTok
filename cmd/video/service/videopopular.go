@@ -6,6 +6,7 @@ import (
 
 	"HuaTug.com/cmd/video/dal/db"
 	"HuaTug.com/config/cache"
+	"HuaTug.com/kitex_gen/base"
 	"HuaTug.com/kitex_gen/videos"
 	"github.com/cloudwego/hertz/pkg/common/hlog"
 	"github.com/pkg/errors"
@@ -19,23 +20,23 @@ func NewVideoPopularService(ctx context.Context) *VideoPopularService {
 	return &VideoPopularService{ctx: ctx}
 }
 
-func (v *VideoPopularService) VideoPopular(req *videos.VideoPopularRequest) (video []*videos.Video, err error) {
+func (v *VideoPopularService) VideoPopular(req *videos.VideoPopularRequest) (video []*base.Video, err error) {
 	res, err := cache.RangeList("Rank")
 	if err != nil {
 		hlog.Info(err)
 		return
 	}
-	var temp *videos.Video
+	var temp *base.Video
 	for i := 0; i < len(res); i++ {
 		s, err := strconv.Atoi(res[i])
 		if err != nil {
-			return video, errors.WithMessage(err,"Convert failed")
+			return video, errors.WithMessage(err, "Convert failed")
 		}
 		temp, err = db.FindVideo(v.ctx, int64(s))
-		if err!=nil{
-			return nil,errors.WithMessage(err,"dao.FindVideo failed")
+		if err != nil {
+			return nil, errors.WithMessage(err, "dao.FindVideo failed")
 		}
 		video = append(video, temp)
 	}
-	return video,nil
+	return video, nil
 }

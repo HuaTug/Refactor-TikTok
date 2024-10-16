@@ -1,17 +1,17 @@
-version: '3'
-
 services:
   mysql:
     image: mysql:latest
-    container_name: kitex_mysql
+    container_name: kitex_mysql    
     volumes:
-      - ./biz/config/mysql/:/docker-entrypoint-initdb.d/
+      - ./config/mysql/:/docker-entrypoint-initdb.d/ 
+    environment:
+      - MYSQL_DATABASE=Hertz
+      - MYSQL_ROOT_PASSWORD=root
+
     ports:
       - "3306:3306"
     privileged: true
-    environment:
-      - MYSQL_DATABASE=hertz
-      - MYSQL_ROOT_PASSWORD=root
+
     networks:
       - docker_net
 
@@ -21,7 +21,7 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - ./biz/dal/cache/redis/redis.conf:/usr/local/etc/redis/redis.conf  
+      - ./config/cache/redis/redis.conf:/usr/local/etc/redis/redis.conf  
     command: redis-server /usr/local/etc/redis/redis.conf
     networks:
       - docker_net
@@ -38,6 +38,34 @@ services:
     networks:
       - docker_net
 
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.9.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - xpack.security.enabled=false
+      - xpack.security.http.ssl.enabled=false
+    volumes:
+      - ./config/Es:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - docker_net
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.9.0
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - xpack.security.enabled=false
+    ports:
+      - "5601:5601"
+    networks:
+      - docker_net
+    depends_on:
+      - elasticsearch
+
   work:
     image: work:latest
     container_name: Micro_Server
@@ -45,6 +73,8 @@ services:
       - mysql
       - redis
       - rabbitmq
+      - elasticsearch
+      - kibana
     profiles: 
     - release
     ports:

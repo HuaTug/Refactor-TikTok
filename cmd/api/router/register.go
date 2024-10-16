@@ -3,14 +3,10 @@
 package router
 
 import (
-
-	"HuaTug.com/cmd/api/router/favorite"
-	"HuaTug.com/cmd/api/router/comment"
-	"HuaTug.com/cmd/api/router/publish"
-	"HuaTug.com/cmd/api/router/relation"
-	"HuaTug.com/cmd/api/router/user"
-	"HuaTug.com/cmd/api/router/video"
-
+	"HuaTug.com/cmd/api/router/relations"
+	"HuaTug.com/cmd/api/router/users"
+	"HuaTug.com/cmd/api/router/videos"
+	"HuaTug.com/cmd/api/router/interactions"
 	"github.com/cloudwego/hertz/pkg/app/server"
 )
 
@@ -19,15 +15,12 @@ func GeneratedRegister(r *server.Hertz) {
 	//INSERT_POINT: DO NOT DELETE THIS LINE!
 
 
-	user.Register(r)
-	
-	publish.Register(r)
+	users.Register(r)
 
-	video.Register(r)
+	videos.Register(r)
 
-	favorite.Register(r)
+	relations.Register(r)
 
-	relation.Register(r)
+	interactions.Register(r)
 
-	comment.Register(r)
 }
