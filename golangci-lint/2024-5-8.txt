@@ -1,0 +1,235 @@
+cmd/publish/service/videocreate.go:19: File is not `gofmt`-ed with `-s` (gofmt)
+func (v *VideoCreateService)VideoCreate(ctx context.Context,req *publishs.VideoCreateRequest)error{
+	err:=db.VideoCreate(v.ctx,req)
+	if err!=nil{
+cmd/publish/service/uploadvideo.go:110: line is 177 characters (lll)
+		part, err := minioClient.PutObjectPart(context.Background(), bucketName, objectName, uploadID, partNumber, bytes.NewReader(buffer[:n]), int64(n), minio.PutObjectPartOptions{})
+cmd/publish/service/uploadvideo.go:133: line is 142 characters (lll)
+	_, err = minioClient.CompleteMultipartUpload(context.Background(), bucketName, objectName, uploadID, completeParts, minio.PutObjectOptions{})
+cmd/api/handlers/comment/createcomment.go:19: File is not `gofmt`-ed with `-s` (gofmt)
+	}else{
+		userId=utils.Transfer(v)
+cmd/api/handlers/comment/deletecomment.go:12: File is not `gofmt`-ed with `-s` (gofmt)
+func DeleteComment(ctx context.Context,c *app.RequestContext){
+cmd/api/handlers/comment/deletecomment.go:17: File is not `goimports`-ed (goimports)
+	resp,err:=rpc.DeleteComment(ctx,&comments.CommentDeleteRequest{
+		VideoId: delete.VideoId,
+cmd/video/dal/db/video.go:13: line is 124 characters (lll)
+	if err := DB.WithContext(ctx).Model(&videos.Video{}).Where("publish_time<?", req.LastTime).Find(&video).Error; err != nil {
+cmd/favorite/service/favorite.go:27: line is 126 characters (lll)
+func (s *FavoriteService) Favorite(ctx context.Context, req *favorites.FavoriteRequest) (*favorites.FavoriteResponse, error) {
+cmd/favorite/service/listfavorite.go:21: line is 142 characters (lll)
+func (s *ListFavoriteService) ListFavorite(ctx context.Context, req *favorites.ListFavoriteRequest) (*favorites.ListFavoriteResponse, error) {
+cmd/favorite/service/unfavorite.go:23: line is 130 characters (lll)
+func (s *UnFavoriteService) UnFavorite(ctx context.Context, req *favorites.FavoriteRequest) (*favorites.FavoriteResponse, error) {
+cmd/favorite/handler.go:13: line is 146 characters (lll)
+func (v *FavoriteServiceImpl) FavoriteService(ctx context.Context, req *favorites.FavoriteRequest) (resp *favorites.FavoriteResponse, err error) {
+cmd/favorite/handler.go:30: line is 151 characters (lll)
+func (v *FavoriteServiceImpl) ListFavorite(ctx context.Context, req *favorites.ListFavoriteRequest) (resp *favorites.ListFavoriteResponse, err error) {
+cmd/favorite/handler.go:14:2: ineffectual assignment to resp (ineffassign)
+	resp = new(favorites.FavoriteResponse)
+	^
+cmd/favorite/handler.go:31:2: ineffectual assignment to resp (ineffassign)
+	resp = new(favorites.ListFavoriteResponse)
+	^
+cmd/mw/Es/init.go:29:15: Error return value is not checked (errcheck)
+	NewVideoIndex()
+	             ^
+cmd/mw/Es/init.go:55:22: Error return value of `index.CreateVideoDoc` is not checked (errcheck)
+	index.CreateVideoDoc(test)
+	                    ^
+cmd/mw/Es/video_index_init.go:132:17: Error return value of `json.Unmarshal` is not checked (errcheck)
+		json.Unmarshal(resp.Source, &video)
+		              ^
+cmd/mw/Es/video_index_init.go:187: line is 123 characters (lll)
+func (v *VideoIndex) SearchVideoDocs(keywords, fromDate, toDate string, pageNum, pageSize int64) ([]*Video, int64, error) {
+cmd/api/handlers/video/uploadvideo.go:20:2: ineffectual assignment to resp (ineffassign)
+	resp := new(publishs.UpLoadVideoResponse)
+	^
+pkg/middleware/client.go:33: line is 151 characters (lll)
+		klog.Infof("server address: %v, rpc timeout: %v, readwrite timeout: %v\n", ri.To().Address(), ri.Config().RPCTimeout(), ri.Config().ConnectTimeout())
+cmd/video/handler.go:20:14: string `Fail to Get VideoFeed!` has 3 occurrences, make it a constant (goconst)
+		resp.Msg = "Fail to Get VideoFeed!"
+		           ^
+cmd/video/handler.go:25:13: string `Get VideoFeed Success` has 3 occurrences, make it a constant (goconst)
+	resp.Msg = "Get VideoFeed Success"
+	           ^
+cmd/video/handler.go:83: File is not `goimports`-ed (goimports)
+	resp.Popular=video
+cmd/video/handler.go:14: line is 139 characters (lll)
+func (s *VideoServiceImpl) FeedService(ctx context.Context, req *videos.FeedServiceRequest) (resp *videos.FeedServiceResponse, err error) {
+cmd/video/handler.go:30: line is 145 characters (lll)
+func (s *VideoServiceImpl) VideoFeedList(ctx context.Context, req *videos.VideoFeedListRequest) (resp *videos.VideoFeedListResponse, err error) {
+cmd/video/handler.go:49: line is 139 characters (lll)
+func (s *VideoServiceImpl) VideoSearch(ctx context.Context, req *videos.VideoSearchRequest) (resp *videos.VideoSearchResponse, err error) {
+cmd/video/handler.go:71: line is 142 characters (lll)
+func (s *VideoServiceImpl) VideoPopular(ctx context.Context, req *videos.VideoPopularRequest) (resp *videos.VideoPopularResponse, err error) {
+cmd/api/rpc/favorite.go:1: 1-56 lines are duplicate of `cmd/api/rpc/relation.go:1-57` (dupl)
+package rpc
+
+import (
+	"context"
+	"time"
+
+	"HuaTug.com/kitex_gen/favorites"
+	"HuaTug.com/kitex_gen/favorites/favoriteservice"
+	"github.com/cloudwego/kitex/client"
+	"github.com/cloudwego/kitex/pkg/klog"
+	"github.com/cloudwego/kitex/pkg/retry"
+	etcd "github.com/kitex-contrib/registry-etcd"
+	"github.com/sirupsen/logrus"
+)
+
+var favoriteClient favoriteservice.Client
+
+func initFavoriteRpc() {
+	r, err := etcd.NewEtcdResolver([]string{"localhost:2379"})
+	if err != nil {
+		klog.Info(err)
+	}
+
+	c, err := favoriteservice.NewClient(
+		"Favorite",
+		/* 		client.WithMiddleware(middleware.CommonMiddleware),
+		   		client.WithInstanceMW(middleware.ClientMiddleware), */
+		client.WithMuxConnection(1),                       // mux
+		client.WithRPCTimeout(3*time.Second),              // rpc timeout
+		client.WithConnectTimeout(50*time.Millisecond),    // conn timeout
+		client.WithFailureRetry(retry.NewFailurePolicy()), // retry
+		//client.WithSuite(trace.NewDefaultClientSuite()),   // tracer
+		client.WithResolver(r), // resolver
+	)
+	if err != nil {
+		logrus.Info(err)
+	}
+	favoriteClient = c
+}
+func Favorite(ctx context.Context, req *favorites.FavoriteRequest) (resp *favorites.FavoriteResponse, err error) {
+	resp=new(favorites.FavoriteResponse)
+	resp,err=favoriteClient.FavoriteService(ctx,req)
+	if err!=nil{
+		return resp,err
+	}
+	return resp,nil
+}
+
+func ListFavorite(ctx context.Context,req *favorites.ListFavoriteRequest)(resp *favorites.ListFavoriteResponse,err error){
+	resp=new(favorites.ListFavoriteResponse)
+	resp,err=favoriteClient.ListFavorite(ctx,req)
+	if err!=nil{
+		return resp,err
+	}
+	return resp,nil
+}
+cmd/api/rpc/relation.go:1: 1-57 lines are duplicate of `cmd/api/rpc/favorite.go:1-56` (dupl)
+package rpc
+
+import (
+	"context"
+	"time"
+
+	"HuaTug.com/kitex_gen/relations"
+	"HuaTug.com/kitex_gen/relations/followservice"
+	"github.com/cloudwego/kitex/client"
+	"github.com/cloudwego/kitex/pkg/klog"
+	"github.com/cloudwego/kitex/pkg/retry"
+	etcd "github.com/kitex-contrib/registry-etcd"
+	"github.com/sirupsen/logrus"
+)
+
+var relationClient followservice.Client
+
+func initRealtionRpc() {
+	r, err := etcd.NewEtcdResolver([]string{"localhost:2379"})
+	if err != nil {
+		klog.Info(err)
+	}
+
+	c, err := followservice.NewClient(
+		"Relation",
+		/* 		client.WithMiddleware(middleware.CommonMiddleware),
+		   		client.WithInstanceMW(middleware.ClientMiddleware), */
+		client.WithMuxConnection(1),                       // mux
+		client.WithRPCTimeout(3*time.Second),              // rpc timeout
+		client.WithConnectTimeout(50*time.Millisecond),    // conn timeout
+		client.WithFailureRetry(retry.NewFailurePolicy()), // retry
+		//client.WithSuite(trace.NewDefaultClientSuite()),   // tracer
+		client.WithResolver(r), // resolver
+	)
+	if err != nil {
+		logrus.Info(err)
+	}
+	relationClient = c
+}
+
+func Relation(ctx context.Context, req *relations.RelationServiceRequest) (resp *relations.RelationServiceResponse, err error) {
+	resp = new(relations.RelationServiceResponse)
+	resp,err=relationClient.RelationService(ctx,req)
+	if err!=nil{
+		return resp,err
+	}
+	return resp, nil
+}
+
+func RelationPage(ctx context.Context, req *relations.RelationServicePageRequest) (resp *relations.RelationServicePageResponse, err error) {
+	resp = new(relations.RelationServicePageResponse)
+	resp,err=relationClient.RelationServicePage(ctx,req)
+	if err!=nil{
+		return resp,err
+	}
+	return resp, nil
+}
+cmd/api/rpc/favorite.go:46: File is not `goimports`-ed (goimports)
+	return resp,nil
+cmd/api/rpc/publish.go:53: line is 121 characters (lll)
+func VideoCreate(ctx context.Context, req *publishs.VideoCreateRequest) (resp *publishs.VideoCreateResponse, err error) {
+cmd/api/rpc/relation.go:41: line is 128 characters (lll)
+func Relation(ctx context.Context, req *relations.RelationServiceRequest) (resp *relations.RelationServiceResponse, err error) {
+cmd/api/rpc/relation.go:50: line is 140 characters (lll)
+func RelationPage(ctx context.Context, req *relations.RelationServicePageRequest) (resp *relations.RelationServicePageResponse, err error) {
+cmd/api/rpc/video.go:55: line is 123 characters (lll)
+func VideoFeedList(ctx context.Context, req *videos.VideoFeedListRequest) (resp *videos.VideoFeedListResponse, err error) {
+cmd/user/dal/db/user.go:39: line is 122 characters (lll)
+	if err := DB.WithContext(ctx).Model(&users.User{}).Where("user_name=?", username).Count(&count).Find(&user); err != nil {
+cmd/comment/handler.go:26: line is 136 characters (lll)
+func (v *CommentServiceImpl) ListComment(ctx context.Context, req *comments.ListCommentRequest) (*comments.ListCommentResponse, error) {
+cmd/user/handler.go:31: line is 133 characters (lll)
+func (s *UserServiceImpl) CreateUser(ctx context.Context, req *users.CreateUserRequest) (resp *users.CreateUserResponse, err error) {
+cmd/user/handler.go:46: line is 133 characters (lll)
+func (s *UserServiceImpl) UpdateUser(ctx context.Context, req *users.UpdateUserRequest) (resp *users.UpdateUserResponse, err error) {
+cmd/user/handler.go:59: line is 131 characters (lll)
+func (s *UserServiceImpl) LoginUser(ctx context.Context, req *users.LoginUserResquest) (resp *users.LoginUserResponse, err error) {
+cmd/user/handler.go:80: line is 130 characters (lll)
+func (s *UserServiceImpl) QueryUser(ctx context.Context, req *users.QueryUserRequest) (resp *users.QueryUserResponse, err error) {
+cmd/user/handler.go:92: line is 136 characters (lll)
+func (s *UserServiceImpl) GetUserInfo(ctx context.Context, req *users.GetUserInfoRequest) (resp *users.GetUserInfoResponse, err error) {
+cmd/user/handler.go:104: line is 133 characters (lll)
+func (s *UserServiceImpl) DeleteUser(ctx context.Context, req *users.DeleteUserRequest) (resp *users.DeleteUserResponse, err error) {
+cmd/favorite/dal/db/favorite.go:21: line is 160 characters (lll)
+	if err := DB.WithContext(ctx).Model(&favorites.Favorite{}).Where("user_id=? And video_id=?", userId, videoId).Delete(&favorites.Favorite{}).Error; err != nil {
+cmd/favorite/dal/db/favorite.go:34: line is 127 characters (lll)
+	if DB.WithContext(ctx).Model(&videos.Video{}).Where("video_id=? And favorite_count!=?", VideoId, 0).Count(&count); count > 0 {
+cmd/publish/handler.go:14: line is 145 characters (lll)
+func (s *PublishServiceImpl) UploadVideo(ctx context.Context, req *publishs.UpLoadVideoRequest) (resp *publishs.UpLoadVideoResponse, err error) {
+cmd/publish/handler.go:26: line is 145 characters (lll)
+func (s *PublishServiceImpl) VideoCreate(ctx context.Context, req *publishs.VideoCreateRequest) (resp *publishs.VideoCreateResponse, err error) {
+cmd/relation/handler.go:12: line is 160 characters (lll)
+func (v *RelationServiceImpl) RelationService(ctx context.Context, req *relations.RelationServiceRequest) (resp *relations.RelationServiceResponse, err error) {
+cmd/relation/handler.go:22: line is 172 characters (lll)
+func (v *RelationServiceImpl) RelationServicePage(ctx context.Context, req *relations.RelationServicePageRequest) (resp *relations.RelationServicePageResponse, err error) {
+cmd/comment/service/createcommentservice.go:40:16: string `Fail to Create Comment` has 3 occurrences, make it a constant (goconst)
+				resp.Msg = "Fail to Create Comment"
+				           ^
+cmd/comment/service/createcommentservice.go:22: line is 123 characters (lll)
+func (v *CreateCommentService) CreateComment(req *comments.CreateCommentRequest) (*comments.CreateCommentResponse, error) {
+cmd/comment/service/listcommentservice.go:19: line is 136 characters (lll)
+func (v *ListCommentService) ListComment(ctx context.Context, req *comments.ListCommentRequest) (*comments.ListCommentResponse, error) {
+cmd/api/main.go:71: line is 130 characters (lll)
+			//return rpc.CheckUser(context.Background(), &users.CheckUserRequest{UserName: loginVar.UserName, Password: loginVar.PassWord})
+pkg/constants/util.go:37:15: Error return value is not checked (errcheck)
+	localAddr := conn.LocalAddr().(*net.UDPAddr)
+	             ^
+cmd/relation/service/following.go:25: line is 148 characters (lll)
+func (s *FollowService) Following(ctx context.Context, req *relations.RelationServiceRequest) (resp *relations.RelationServiceResponse, err error) {
+cmd/relation/service/followlist.go:19: line is 161 characters (lll)
+func (s *FollowListService) FollowList(ctx context.Context, req *relations.RelationServicePageRequest) (resp *relations.RelationServicePageResponse, err error) {

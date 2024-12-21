@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Stream</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Video Streaming</h1>
+    <p>Enter Video Index:</p>
+    <input type="number" id="videoIndex" min="0" placeholder="Enter video index">
+    <button onclick="playVideo()">Play Video</button>
+
+    <video id="videoPlayer" controls>
+        <source id="videoSource" src="" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        function playVideo() {
+            const index = document.getElementById('videoIndex').value;
+            const videoPlayer = document.getElementById('videoPlayer');
+            const videoSource = document.getElementById('videoSource');
+
+            if (index === "") {
+                alert("Please enter a video index.");
+                return;
+            }
+
+            videoSource.src = `http://localhost:7000/video/stream?index=${index}`;
+            videoPlayer.load(); // Load the new video source
+            videoPlayer.play(); // Start playing the video
+        }
+    </script>
+</body>
+</html>
