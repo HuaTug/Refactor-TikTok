@@ -20,7 +20,7 @@ func Init() {
 func main() {
 	config.Init()
 	Init()
-	r, err := etcd.NewEtcdRegistry([]string{"localhost:2379"})
+	r, err := etcd.NewEtcdRegistry([]string{config.ConfigInfo.Etcd.Addr})
 	if err != nil {
 		panic(err)
 	}

@@ -50,8 +50,8 @@ func main() {
 	}
 	suite, closer := jaeger.NewServerSuite().Init("User")
 	defer closer.Close()
-	//r, err := etcd.NewEtcdRegistry([]string{config.ConfigInfo.Etcd.Addr})
-	r, err := etcd.NewEtcdRegistry([]string{"172.19.0.3:2379"})
+	r, err := etcd.NewEtcdRegistry([]string{config.ConfigInfo.Etcd.Addr})
+	//r, err := etcd.NewEtcdRegistry([]string{"localhost:2379"})
 	if err != nil {
 		panic(err)
 	}

@@ -1,0 +1,625 @@
+12月 13 11:01:23 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:01:23 nigtusg etcd[42842]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:01:23 nigtusg etcd[42842]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:01:23 nigtusg etcd[42842]: etcd Version: 3.4.13
+12月 13 11:01:23 nigtusg etcd[42842]: Git SHA: ae9734ed2
+12月 13 11:01:23 nigtusg etcd[42842]: Go Version: go1.12.17
+12月 13 11:01:23 nigtusg etcd[42842]: Go OS/Arch: linux/amd64
+12月 13 11:01:23 nigtusg etcd[42842]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:01:23 nigtusg etcd[42842]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:01:23 nigtusg etcd[42842]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:01:23 nigtusg etcd[42842]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:01:23 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:01:23 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:01:23 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:01:33 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 1.
+12月 13 11:01:33 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:01:33 nigtusg etcd[42923]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:01:33 nigtusg etcd[42923]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:01:33 nigtusg etcd[42923]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:01:33 nigtusg etcd[42923]: etcd Version: 3.4.13
+12月 13 11:01:33 nigtusg etcd[42923]: Git SHA: ae9734ed2
+12月 13 11:01:33 nigtusg etcd[42923]: Go Version: go1.12.17
+12月 13 11:01:33 nigtusg etcd[42923]: Go OS/Arch: linux/amd64
+12月 13 11:01:33 nigtusg etcd[42923]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:01:33 nigtusg etcd[42923]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:01:33 nigtusg etcd[42923]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:01:33 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:01:33 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:01:33 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:01:43 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 2.
+12月 13 11:01:43 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:01:43 nigtusg etcd[43017]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:01:43 nigtusg etcd[43017]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:01:43 nigtusg etcd[43017]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:01:43 nigtusg etcd[43017]: etcd Version: 3.4.13
+12月 13 11:01:43 nigtusg etcd[43017]: Git SHA: ae9734ed2
+12月 13 11:01:43 nigtusg etcd[43017]: Go Version: go1.12.17
+12月 13 11:01:43 nigtusg etcd[43017]: Go OS/Arch: linux/amd64
+12月 13 11:01:43 nigtusg etcd[43017]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:01:43 nigtusg etcd[43017]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:01:43 nigtusg etcd[43017]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:01:43 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:01:43 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:01:43 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:01:54 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 3.
+12月 13 11:01:54 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:01:54 nigtusg etcd[43117]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:01:54 nigtusg etcd[43117]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:01:54 nigtusg etcd[43117]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:01:54 nigtusg etcd[43117]: etcd Version: 3.4.13
+12月 13 11:01:54 nigtusg etcd[43117]: Git SHA: ae9734ed2
+12月 13 11:01:54 nigtusg etcd[43117]: Go Version: go1.12.17
+12月 13 11:01:54 nigtusg etcd[43117]: Go OS/Arch: linux/amd64
+12月 13 11:01:54 nigtusg etcd[43117]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:01:54 nigtusg etcd[43117]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:01:54 nigtusg etcd[43117]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:01:54 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:01:54 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:01:54 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:02:04 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 4.
+12月 13 11:02:04 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:02:04 nigtusg etcd[43206]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:02:04 nigtusg etcd[43206]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:02:04 nigtusg etcd[43206]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:02:04 nigtusg etcd[43206]: etcd Version: 3.4.13
+12月 13 11:02:04 nigtusg etcd[43206]: Git SHA: ae9734ed2
+12月 13 11:02:04 nigtusg etcd[43206]: Go Version: go1.12.17
+12月 13 11:02:04 nigtusg etcd[43206]: Go OS/Arch: linux/amd64
+12月 13 11:02:04 nigtusg etcd[43206]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:02:04 nigtusg etcd[43206]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:02:04 nigtusg etcd[43206]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:02:04 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:02:04 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:02:04 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:02:14 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 5.
+12月 13 11:02:14 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:02:14 nigtusg etcd[43342]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:02:14 nigtusg etcd[43342]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:02:14 nigtusg etcd[43342]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:02:14 nigtusg etcd[43342]: etcd Version: 3.4.13
+12月 13 11:02:14 nigtusg etcd[43342]: Git SHA: ae9734ed2
+12月 13 11:02:14 nigtusg etcd[43342]: Go Version: go1.12.17
+12月 13 11:02:14 nigtusg etcd[43342]: Go OS/Arch: linux/amd64
+12月 13 11:02:14 nigtusg etcd[43342]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:02:14 nigtusg etcd[43342]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:02:14 nigtusg etcd[43342]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:02:14 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:02:14 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:02:14 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:02:24 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 6.
+12月 13 11:02:24 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:02:24 nigtusg etcd[43416]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:02:24 nigtusg etcd[43416]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:02:24 nigtusg etcd[43416]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:02:24 nigtusg etcd[43416]: etcd Version: 3.4.13
+12月 13 11:02:24 nigtusg etcd[43416]: Git SHA: ae9734ed2
+12月 13 11:02:24 nigtusg etcd[43416]: Go Version: go1.12.17
+12月 13 11:02:24 nigtusg etcd[43416]: Go OS/Arch: linux/amd64
+12月 13 11:02:24 nigtusg etcd[43416]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:02:24 nigtusg etcd[43416]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:02:24 nigtusg etcd[43416]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:02:24 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:02:24 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:02:24 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:02:35 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 7.
+12月 13 11:02:35 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:02:35 nigtusg etcd[43504]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:02:35 nigtusg etcd[43504]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:02:35 nigtusg etcd[43504]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:02:35 nigtusg etcd[43504]: etcd Version: 3.4.13
+12月 13 11:02:35 nigtusg etcd[43504]: Git SHA: ae9734ed2
+12月 13 11:02:35 nigtusg etcd[43504]: Go Version: go1.12.17
+12月 13 11:02:35 nigtusg etcd[43504]: Go OS/Arch: linux/amd64
+12月 13 11:02:35 nigtusg etcd[43504]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:02:35 nigtusg etcd[43504]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:02:35 nigtusg etcd[43504]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:02:35 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:02:35 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:02:35 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:02:45 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 8.
+12月 13 11:02:45 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:02:45 nigtusg etcd[43579]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:02:45 nigtusg etcd[43579]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:02:45 nigtusg etcd[43579]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:02:45 nigtusg etcd[43579]: etcd Version: 3.4.13
+12月 13 11:02:45 nigtusg etcd[43579]: Git SHA: ae9734ed2
+12月 13 11:02:45 nigtusg etcd[43579]: Go Version: go1.12.17
+12月 13 11:02:45 nigtusg etcd[43579]: Go OS/Arch: linux/amd64
+12月 13 11:02:45 nigtusg etcd[43579]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:02:45 nigtusg etcd[43579]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:02:45 nigtusg etcd[43579]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:02:45 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:02:45 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:02:45 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:02:55 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 9.
+12月 13 11:02:55 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:02:55 nigtusg etcd[43663]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:02:55 nigtusg etcd[43663]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:02:55 nigtusg etcd[43663]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:02:55 nigtusg etcd[43663]: etcd Version: 3.4.13
+12月 13 11:02:55 nigtusg etcd[43663]: Git SHA: ae9734ed2
+12月 13 11:02:55 nigtusg etcd[43663]: Go Version: go1.12.17
+12月 13 11:02:55 nigtusg etcd[43663]: Go OS/Arch: linux/amd64
+12月 13 11:02:55 nigtusg etcd[43663]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:02:55 nigtusg etcd[43663]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:02:55 nigtusg etcd[43663]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:02:55 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:02:55 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:02:55 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:03:05 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 10.
+12月 13 11:03:05 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:03:05 nigtusg etcd[43746]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:03:05 nigtusg etcd[43746]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:03:05 nigtusg etcd[43746]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:03:05 nigtusg etcd[43746]: etcd Version: 3.4.13
+12月 13 11:03:05 nigtusg etcd[43746]: Git SHA: ae9734ed2
+12月 13 11:03:05 nigtusg etcd[43746]: Go Version: go1.12.17
+12月 13 11:03:05 nigtusg etcd[43746]: Go OS/Arch: linux/amd64
+12月 13 11:03:05 nigtusg etcd[43746]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:03:05 nigtusg etcd[43746]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:03:05 nigtusg etcd[43746]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:03:05 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:03:05 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:03:05 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:03:16 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 11.
+12月 13 11:03:16 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:03:16 nigtusg etcd[43869]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:03:16 nigtusg etcd[43869]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:03:16 nigtusg etcd[43869]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:03:16 nigtusg etcd[43869]: etcd Version: 3.4.13
+12月 13 11:03:16 nigtusg etcd[43869]: Git SHA: ae9734ed2
+12月 13 11:03:16 nigtusg etcd[43869]: Go Version: go1.12.17
+12月 13 11:03:16 nigtusg etcd[43869]: Go OS/Arch: linux/amd64
+12月 13 11:03:16 nigtusg etcd[43869]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:03:16 nigtusg etcd[43869]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:03:16 nigtusg etcd[43869]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:03:16 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:03:16 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:03:16 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:03:26 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 12.
+12月 13 11:03:26 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:03:26 nigtusg etcd[43946]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:03:26 nigtusg etcd[43946]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:03:26 nigtusg etcd[43946]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:03:26 nigtusg etcd[43946]: etcd Version: 3.4.13
+12月 13 11:03:26 nigtusg etcd[43946]: Git SHA: ae9734ed2
+12月 13 11:03:26 nigtusg etcd[43946]: Go Version: go1.12.17
+12月 13 11:03:26 nigtusg etcd[43946]: Go OS/Arch: linux/amd64
+12月 13 11:03:26 nigtusg etcd[43946]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:03:26 nigtusg etcd[43946]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:03:26 nigtusg etcd[43946]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:03:26 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:03:26 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:03:26 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:03:36 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 13.
+12月 13 11:03:36 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:03:36 nigtusg etcd[44026]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:03:36 nigtusg etcd[44026]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:03:36 nigtusg etcd[44026]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:03:36 nigtusg etcd[44026]: etcd Version: 3.4.13
+12月 13 11:03:36 nigtusg etcd[44026]: Git SHA: ae9734ed2
+12月 13 11:03:36 nigtusg etcd[44026]: Go Version: go1.12.17
+12月 13 11:03:36 nigtusg etcd[44026]: Go OS/Arch: linux/amd64
+12月 13 11:03:36 nigtusg etcd[44026]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:03:36 nigtusg etcd[44026]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:03:36 nigtusg etcd[44026]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:03:36 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:03:36 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:03:36 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:03:46 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 14.
+12月 13 11:03:46 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:03:46 nigtusg etcd[44177]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:03:46 nigtusg etcd[44177]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:03:46 nigtusg etcd[44177]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:03:46 nigtusg etcd[44177]: etcd Version: 3.4.13
+12月 13 11:03:46 nigtusg etcd[44177]: Git SHA: ae9734ed2
+12月 13 11:03:46 nigtusg etcd[44177]: Go Version: go1.12.17
+12月 13 11:03:46 nigtusg etcd[44177]: Go OS/Arch: linux/amd64
+12月 13 11:03:46 nigtusg etcd[44177]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:03:46 nigtusg etcd[44177]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:03:46 nigtusg etcd[44177]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:03:46 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:03:46 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:03:46 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:03:57 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 15.
+12月 13 11:03:57 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:03:57 nigtusg etcd[44301]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:03:57 nigtusg etcd[44301]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_LISTEN_CLIENT_URLS=https://192.168.137.123:2379,https://127.0.0.1:2379
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_LISTEN_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_METRICS=basic
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_NAME=etcd-xuzh-Dell-G15-5510
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_PEER_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_PEER_CLIENT_CERT_AUTH=True
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_PEER_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_PEER_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_PROXY=off
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_SNAPSHOT_COUNT=10000
+12月 13 11:03:57 nigtusg etcd[44301]: recognized and used environment variable ETCD_TRUSTED_CA_FILE=/etc/ssl/etcd/ssl/ca.pem
+12月 13 11:03:57 nigtusg etcd[44301]: etcd Version: 3.4.13
+12月 13 11:03:57 nigtusg etcd[44301]: Git SHA: ae9734ed2
+12月 13 11:03:57 nigtusg etcd[44301]: Go Version: go1.12.17
+12月 13 11:03:57 nigtusg etcd[44301]: Go OS/Arch: linux/amd64
+12月 13 11:03:57 nigtusg etcd[44301]: setting maximum number of CPUs to 16, total number of available CPUs is 16
+12月 13 11:03:57 nigtusg etcd[44301]: peerTLS: cert = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem, key = /etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem, trusted-ca = /etc/ssl/etcd/ssl/ca.pem, client-cert-auth = true, crl-file = 
+12月 13 11:03:57 nigtusg etcd[44301]: [0;1;31m[0;1;39m[0;1;31mlisten tcp 192.168.137.123:2380: bind: cannot assign requested address[0m
+12月 13 11:03:57 nigtusg systemd[1]: [0;1;39m[0;1;31m[0;1;39metcd.service: Main process exited, code=exited, status=1/FAILURE[0m
+12月 13 11:03:57 nigtusg systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185metcd.service: Failed with result 'exit-code'.[0m
+12月 13 11:03:57 nigtusg systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start etcd.service - etcd.[0m
+12月 13 11:04:07 nigtusg systemd[1]: etcd.service: Scheduled restart job, restart counter is at 16.
+12月 13 11:04:07 nigtusg systemd[1]: Starting etcd.service - etcd...
+12月 13 11:04:07 nigtusg etcd[44372]: recognized and used environment variable ETCD_ADVERTISE_CLIENT_URLS=https://192.168.137.123:2379
+12月 13 11:04:07 nigtusg etcd[44372]: recognized and used environment variable ETCD_AUTO_COMPACTION_RETENTION=8
+12月 13 11:04:07 nigtusg etcd[44372]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:04:07 nigtusg etcd[44372]: [WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+12月 13 11:04:07 nigtusg etcd[44372]: recognized and used environment variable ETCD_CERT_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510.pem
+12月 13 11:04:07 nigtusg etcd[44372]: recognized and used environment variable ETCD_CLIENT_CERT_AUTH=true
+12月 13 11:04:07 nigtusg etcd[44372]: recognized and used environment variable ETCD_DATA_DIR=/var/lib/etcd
+12月 13 11:04:07 nigtusg etcd[44372]: recognized and used environment variable ETCD_ELECTION_TIMEOUT=5000
+12月 13 11:04:07 nigtusg etcd[44372]: recognized and used environment variable ETCD_ENABLE_V2=true
+12月 13 11:04:07 nigtusg etcd[44372]: recognized and used environment variable ETCD_HEARTBEAT_INTERVAL=250
+12月 13 11:04:07 nigtusg etcd[44372]: recognized and used environment variable ETCD_INITIAL_ADVERTISE_PEER_URLS=https://192.168.137.123:2380
+12月 13 11:04:07 nigtusg etcd[44372]: recognized and used environment variable ETCD_INITIAL_CLUSTER=etcd-xuzh-Dell-G15-5510=https://192.168.137.123:2380
+12月 13 11:04:07 nigtusg etcd[44372]: recognized and used environment variable ETCD_INITIAL_CLUSTER_STATE=new
+12月 13 11:04:07 nigtusg etcd[44372]: recognized and used environment variable ETCD_INITIAL_CLUSTER_TOKEN=k8s_etcd
+12月 13 11:04:07 nigtusg etcd[44372]: recognized and used environment variable ETCD_KEY_FILE=/etc/ssl/etcd/ssl/member-xuzh-Dell-G15-5510-key.pem
+12月 13 11:04:07 nigtusg etcd[44372]: recognized and used environment variable ET

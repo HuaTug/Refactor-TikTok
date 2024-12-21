@@ -29,10 +29,9 @@ func Init() {
 func main() {
 	config.Init()
 	pprof.Load()
-	//r, err := etcd.NewEtcdRegistry([]string{config.ConfigInfo.Etcd.Addr})
 	suite, closer := jaeger.NewServerSuite().Init("Relation")
 	defer closer.Close()
-	r, err := etcd.NewEtcdRegistry([]string{"localhost:2379"})
+	r, err := etcd.NewEtcdRegistry([]string{config.ConfigInfo.Etcd.Addr})
 	if err != nil {
 		panic(err)
 	}

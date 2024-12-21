@@ -36,8 +36,8 @@ func Init() {
 func main() {
 	Init()
 	//pprof.Load()
-	//r, err := etcd.NewEtcdRegistry([]string{config.ConfigInfo.Etcd.Addr})
-	r, err := etcd.NewEtcdRegistry([]string{"localhost:2379"})
+	r, err := etcd.NewEtcdRegistry([]string{config.ConfigInfo.Etcd.Addr})
+	//r, err := etcd.NewEtcdRegistry([]string{"localhost:2379"})
 	if err != nil {
 		panic(err)
 	}

@@ -68,25 +68,21 @@ services:
 
   etcd:
     image: bitnami/etcd:3.5.9
-    container_name: etcd01
+    container_name: etcd
     environment:
       - ALLOW_NONE_AUTHENTICATION=yes
       - ETCD_NAME=etcd01
-      - ETCD_DATA_DIR=/bitnami/etcd/data
-      - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
-      - ETCD_LISTEN_PEER_URLS=http://0.0.0.0:2380
-      - ETCD_ADVERTISE_CLIENT_URLS=http://etcd01:2379
+      - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379  # 绑定所有地址
+      - ETCD_LISTEN_PEER_URLS=http://0.0.0.0:2380  # 绑定所有地址
+      - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379  # 使用容器名称或内部 IP 地址
       - ETCD_INITIAL_CLUSTER_STATE=new
       - ETCD_INITIAL_CLUSTER_TOKEN=etcd-cluster-1
-      - ETCD_INITIAL_CLUSTER=etcd01=http://etcd01:2380
-    volumes:
-      - ./config/etcd:/bitnami/etcd/data
+      - ETCD_INITIAL_CLUSTER=etcd01=http://etcd:2380
     ports:
       - "2379:2379"
       - "2380:2380"
     networks:
-      - etcd_network
-
+      - docker_net
 
   work:
     image: work:latest
@@ -97,6 +93,7 @@ services:
       - rabbitmq
       - elasticsearch
       - kibana
+      - etcd
     profiles: 
     - release
     ports:
@@ -106,7 +103,4 @@ services:
 
 networks:
   docker_net:
-    driver: bridge
-
-  etcd_network:
     driver: bridge

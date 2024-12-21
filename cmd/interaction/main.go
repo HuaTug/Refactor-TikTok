@@ -35,10 +35,10 @@ func main() {
 	config.Init()
 	Init()
 	//cache.Init()
-	//r, err := etcd.NewEtcdRegistry([]string{config.ConfigInfo.Etcd.Addr})
+
 	suite, closer := jaeger.NewServerSuite().Init("Interaction")
 	defer closer.Close()
-	r, err := etcd.NewEtcdRegistry([]string{"localhost:2379"})
+	r, err := etcd.NewEtcdRegistry([]string{config.ConfigInfo.Etcd.Addr})
 	if err != nil {
 		panic(err)
 	}
