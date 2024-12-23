@@ -79,6 +79,7 @@ require (
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
+	github.com/hertz-contrib/cors v0.1.0 // indirect
 	github.com/iancoleman/strcase v0.3.0 // indirect
 	github.com/jhump/protoreflect v1.17.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect

@@ -79,6 +79,7 @@ func main() {
 		server.WithSuite(suite),                             // tracer
 		server.WithBoundHandler(bound.NewCpuLimitHandler()), // BoundHandler
 		server.WithRegistry(r),                              // registry
+
 	)
 	err = svr.Run()
 	if err != nil {
