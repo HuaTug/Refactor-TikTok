@@ -18,6 +18,7 @@ func NewSendCodeService(ctx context.Context) *SendCodeService {
 }
 
 func (s *SendCodeService) SendCode(req *users.SendCodeRequest) (string, error) {
+  hlog.Info("from front req:" ,req.Email)
 	if code, err := utils.SendEmail(req.Email); err != nil {
 		hlog.Info(err)
 		return "", err

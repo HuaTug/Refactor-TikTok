@@ -10,6 +10,7 @@ import (
 	"HuaTug.com/kitex_gen/users"
 	"HuaTug.com/pkg/constants"
 	"HuaTug.com/pkg/utils"
+	"github.com/cloudwego/hertz/pkg/common/hlog"
 	"github.com/pkg/errors"
 )
 
@@ -32,6 +33,7 @@ func (v *CreateUserService) CreateUser(req *users.CreateUserRequest) error {
 	if err != nil {
 		return errors.WithMessage(err, "Password fail to crypt")
 	}
+  hlog.Info("username:",req.UserName,"password:",req.Password,"email:",req.Email)
 	err = db.CreateUser(v.ctx, &base.User{
 		Password:  passWord,
 		UserName:  req.UserName,
@@ -44,7 +46,7 @@ func (v *CreateUserService) CreateUser(req *users.CreateUserRequest) error {
 	if err != nil {
 		return errors.WithMessage(err, "dao.CreateUser failed")
 	}
-	
+
 	// 对用户进行角色分配 （实现了对校内外用户的权限划分基础）
 	var role_id int64
 	var roles string

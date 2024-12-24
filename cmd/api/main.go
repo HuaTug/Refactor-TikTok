@@ -34,12 +34,12 @@ func main() {
 
 	// 配置 CORS
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:8870", "http://localhost:8888"}, // 允许的来源
-		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},      // 允许的请求方法
-		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},      // 允许的请求头
-		ExposeHeaders:    []string{"Content-Length"},                              // 可暴露的响应头
-		AllowCredentials: true,                                                    // 是否允许发送凭证
-		MaxAge:           12 * 3600,                                              // 预检请求的缓存时间
+		AllowOrigins: []string{"http://localhost:8870", "http://localhost:8888"}, // 允许的来源
+		AllowMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},        // 允许的请求方法
+		// AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},      // 允许的请求头
+		// ExposeHeaders:    []string{"Content-Length"},                              // 可暴露的响应头
+		AllowCredentials: true,      // 是否允许发送凭证
+		MaxAge:           12 * 3600, // 预检请求的缓存时间
 	}))
 
 	// 初始化 JWT

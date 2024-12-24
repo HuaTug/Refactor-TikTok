@@ -9,6 +9,7 @@ import (
 	"HuaTug.com/pkg/errno"
 
 	"github.com/cloudwego/hertz/pkg/app"
+	"github.com/cloudwego/hertz/pkg/common/hlog"
 	"github.com/cloudwego/hertz/pkg/protocol/consts"
 )
 
@@ -20,7 +21,7 @@ func LoginUser(ctx context.Context, c *app.RequestContext) {
 		return
 	}
 	resp := new(users.LoginUserResponse)
-
+  hlog.Info(loginVar.UserName,",",loginVar.PassWord,",",loginVar.Email)
 	resp, err = rpc.LoginUser(ctx, &users.LoginUserResquest{
 		UserName: loginVar.UserName,
 		Password: loginVar.PassWord,
